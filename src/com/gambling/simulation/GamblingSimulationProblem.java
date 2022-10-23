@@ -5,6 +5,7 @@
 //Use Case 4 is that After 20 days of playing every day would like to know the total amount won or lost.
 //Use Case 5 is that Each month would like to know the days won and lost and by how much.
 //Use Case 6 is that to know Gambler's luckiest day when he won maximum and the unluckiest day when he lost maximum.
+//Use Case 7 is that if Gambler won would like to continue playing next month or stop Gambling.
 
 package com.gambling.simulation;
 
@@ -37,7 +38,7 @@ public class GamblingSimulationProblem {
 
     }
 
-    //Method for starting the game.
+    //Method for starting and stopping the game.
     public static void startsGambling(GamblingSimulationProblem gambling) {
         //Declaring variables
         Random random = new Random();
@@ -45,13 +46,20 @@ public class GamblingSimulationProblem {
         int lowestStake = (int) (stakePerDay - (stakePerDay * percentage));
 
         //Checking randomly if win or loose with the condition for 20 days for all month.
-        checkForMonth(highestStake,lowestStake,random);
+        ArrayList bid = checkForMonth(highestStake,lowestStake,random);
+
+        //Printing all the data for every month
+        printData(bid);
     }
 
-    public static void checkForMonth(int highestStake, int lowestStake, Random random) {
+    //Method for looping in every month.
+    public static ArrayList checkForMonth(int highestStake, int lowestStake, Random random) {
         String s;
         int maxDays;
         ArrayList bid = new ArrayList();
+        Scanner scan = new Scanner(System.in);
+        int ask;
+        int flag = 0;
         for (int i = 1; i <= 12; i++)
         {
 
@@ -62,7 +70,17 @@ public class GamblingSimulationProblem {
                 System.out.println("\n");
                 System.out.println("For "+s+" :- ");
                 System.out.println();
-                checkingCondition(highestStake,lowestStake,random,s,maxDays,bid);
+                flag = checkingCondition(highestStake,lowestStake,random,s,maxDays,bid,flag);
+                if (flag == 1)
+                {
+                    System.out.println("You have won in gambling in previous month.");
+                    System.out.println("Would you like to continue?\nPress 1 for Continue or Press 0 for Stop.\n");
+                    ask = scan.nextInt();
+                    if (ask == 1)
+                        continue;
+                    else
+                        break;
+                }
             }
             else if (i == 2)
             {
@@ -71,7 +89,17 @@ public class GamblingSimulationProblem {
                 System.out.println("\n");
                 System.out.println("For "+s+" :- ");
                 System.out.println();
-                checkingCondition(highestStake,lowestStake,random,s, maxDays, bid);
+                flag = checkingCondition(highestStake,lowestStake,random,s, maxDays, bid, flag);
+                if (flag == 1)
+                {
+                    System.out.println("You have won in gambling in previous month.");
+                    System.out.println("Would you like to continue?\nPress 1 for Continue or Press 0 for Stop.\n");
+                    ask = scan.nextInt();
+                    if (ask == 1)
+                        continue;
+                    else
+                        break;
+                }
             }
             else if (i == 3)
             {
@@ -80,7 +108,17 @@ public class GamblingSimulationProblem {
                 System.out.println("\n");
                 System.out.println("For "+s+" :- ");
                 System.out.println();
-                checkingCondition(highestStake,lowestStake,random,s, maxDays, bid);
+                flag = checkingCondition(highestStake,lowestStake,random,s, maxDays, bid, flag);
+                if (flag == 1)
+                {
+                    System.out.println("You have won in gambling in previous month.");
+                    System.out.println("Would you like to continue?\nPress 1 for Continue or Press 0 for Stop.\n");
+                    ask = scan.nextInt();
+                    if (ask == 1)
+                        continue;
+                    else
+                        break;
+                }
             }
             else if (i == 4)
             {
@@ -89,7 +127,17 @@ public class GamblingSimulationProblem {
                 System.out.println("\n");
                 System.out.println("For "+s+" :- ");
                 System.out.println();
-                checkingCondition(highestStake,lowestStake,random,s, maxDays, bid);
+                flag = checkingCondition(highestStake,lowestStake,random,s, maxDays, bid, flag);
+                if (flag == 1)
+                {
+                    System.out.println("You have won in gambling in previous month.");
+                    System.out.println("Would you like to continue?\nPress 1 for Continue or Press 0 for Stop.\n");
+                    ask = scan.nextInt();
+                    if (ask == 1)
+                        continue;
+                    else
+                        break;
+                }
             }
             else if (i == 5)
             {
@@ -98,7 +146,17 @@ public class GamblingSimulationProblem {
                 System.out.println("\n");
                 System.out.println("For "+s+" :- ");
                 System.out.println();
-                checkingCondition(highestStake,lowestStake,random,s, maxDays, bid);
+                flag = checkingCondition(highestStake,lowestStake,random,s, maxDays, bid, flag);
+                if (flag == 1)
+                {
+                    System.out.println("You have won in gambling in previous month.");
+                    System.out.println("Would you like to continue?\nPress 1 for Continue or Press 0 for Stop.\n");
+                    ask = scan.nextInt();
+                    if (ask == 1)
+                        continue;
+                    else
+                        break;
+                }
             }
             else if (i == 6)
             {
@@ -107,7 +165,17 @@ public class GamblingSimulationProblem {
                 System.out.println("\n");
                 System.out.println("For "+s+" :- ");
                 System.out.println();
-                checkingCondition(highestStake,lowestStake,random,s, maxDays, bid);
+                flag = checkingCondition(highestStake,lowestStake,random,s, maxDays, bid, flag);
+                if (flag == 1)
+                {
+                    System.out.println("You have won in gambling in previous month.");
+                    System.out.println("Would you like to continue?\nPress 1 for Continue or Press 0 for Stop.\n");
+                    ask = scan.nextInt();
+                    if (ask == 1)
+                        continue;
+                    else
+                        break;
+                }
             }
             else if (i == 7)
             {
@@ -116,7 +184,17 @@ public class GamblingSimulationProblem {
                 System.out.println("\n");
                 System.out.println("For "+s+" :- ");
                 System.out.println();
-                checkingCondition(highestStake,lowestStake,random,s, maxDays, bid);
+                flag = checkingCondition(highestStake,lowestStake,random,s, maxDays, bid, flag);
+                if (flag == 1)
+                {
+                    System.out.println("You have won in gambling in previous month.");
+                    System.out.println("Would you like to continue?\nPress 1 for Continue or Press 0 for Stop.\n");
+                    ask = scan.nextInt();
+                    if (ask == 1)
+                        continue;
+                    else
+                        break;
+                }
             }
             else if (i == 8)
             {
@@ -125,7 +203,17 @@ public class GamblingSimulationProblem {
                 System.out.println("\n");
                 System.out.println("For "+s+" :- ");
                 System.out.println();
-                checkingCondition(highestStake,lowestStake,random,s, maxDays, bid);
+                flag = checkingCondition(highestStake,lowestStake,random,s, maxDays, bid, flag);
+                if (flag == 1)
+                {
+                    System.out.println("You have won in gambling in previous month.");
+                    System.out.println("Would you like to continue?\nPress 1 for Continue or Press 0 for Stop.\n");
+                    ask = scan.nextInt();
+                    if (ask == 1)
+                        continue;
+                    else
+                        break;
+                }
             }
             else if (i == 9)
             {
@@ -134,7 +222,17 @@ public class GamblingSimulationProblem {
                 System.out.println("\n");
                 System.out.println("For "+s+" :- ");
                 System.out.println();
-                checkingCondition(highestStake,lowestStake,random,s, maxDays, bid);
+                flag = checkingCondition(highestStake,lowestStake,random,s, maxDays, bid, flag);
+                if (flag == 1)
+                {
+                    System.out.println("You have won in gambling in previous month.");
+                    System.out.println("Would you like to continue?\nPress 1 for Continue or Press 0 for Stop.\n");
+                    ask = scan.nextInt();
+                    if (ask == 1)
+                        continue;
+                    else
+                        break;
+                }
             }
             else if (i == 10)
             {
@@ -143,7 +241,17 @@ public class GamblingSimulationProblem {
                 System.out.println("\n");
                 System.out.println("For "+s+" :- ");
                 System.out.println();
-                checkingCondition(highestStake,lowestStake,random,s, maxDays, bid);
+                flag = checkingCondition(highestStake,lowestStake,random,s, maxDays, bid, flag);
+                if (flag == 1)
+                {
+                    System.out.println("You have won in gambling in previous month.");
+                    System.out.println("Would you like to continue?\nPress 1 for Continue or Press 0 for Stop.\n");
+                    ask = scan.nextInt();
+                    if (ask == 1)
+                        continue;
+                    else
+                        break;
+                }
             }
             else if (i == 11)
             {
@@ -152,7 +260,17 @@ public class GamblingSimulationProblem {
                 System.out.println("\n");
                 System.out.println("For "+s+" :- ");
                 System.out.println();
-                checkingCondition(highestStake,lowestStake,random,s, maxDays, bid);
+                flag = checkingCondition(highestStake,lowestStake,random,s, maxDays, bid, flag);
+                if (flag == 1)
+                {
+                    System.out.println("You have won in gambling in previous month.");
+                    System.out.println("Would you like to continue?\nPress 1 for Continue or Press 0 for Stop.\n");
+                    ask = scan.nextInt();
+                    if (ask == 1)
+                        continue;
+                    else
+                        break;
+                }
             }
             else
             {
@@ -161,16 +279,25 @@ public class GamblingSimulationProblem {
                 System.out.println("\n");
                 System.out.println("For "+s+" :- ");
                 System.out.println();
-                checkingCondition(highestStake,lowestStake,random,s, maxDays, bid);
+                flag = checkingCondition(highestStake,lowestStake,random,s, maxDays, bid, flag);
+                if (flag == 1)
+                {
+                    System.out.println("You have won in gambling in previous month.");
+                    System.out.println("Would you like to continue?\nPress 1 for Continue or Press 0 for Stop.\n");
+                    ask = scan.nextInt();
+                    if (ask == 1)
+                        continue;
+                    else
+                        break;
+                }
             }
             System.out.println();
-
-            //Printing all the data for every month
-            printData(bid);
         }
+        return bid;
     }
 
-    public static void checkingCondition(int highestStake, int lowestStake, Random random, String s, int maxDays, ArrayList bid) {
+    //Method for checking condition as well as running the game for a month.
+    public static int checkingCondition(int highestStake, int lowestStake, Random random, String s, int maxDays, ArrayList bid, int flag) {
         //Declaring few more variables.
         int totalWon = 0,totalLost = 0,totalDollars = 0;
         int maxProfit = 0,maxLoss = 0;
@@ -221,13 +348,18 @@ public class GamblingSimulationProblem {
         {
             int total = totalWon - totalLost;
             System.out.println("Gambler having overall total won $"+total+" in month "+s);
+            flag = 1;
         }
         else if (totalLost > totalWon)
         {
             int total = totalLost - totalWon;
             System.out.println("Gambler having overall total lost $"+total+" in month "+s);
+            flag = 0;
         }
+        return flag;
     }
+
+    //Method for printing the game data.
     public static void printData(ArrayList bid) {
         int tempMax = 0, tempMin = 0, winDate = 0, lossDate = 0;
         int[] a = convertList(bid);
@@ -399,6 +531,7 @@ public class GamblingSimulationProblem {
         }
     }
 
+    //Method to convert an array list to an array(Integer Array).
     public static int[] convertList(ArrayList bid) {
         Object[] arr = bid.toArray();
         int[] a = new int[arr.length];
